@@ -1,26 +1,29 @@
 jobs:
-  build:
+  xxx:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+  build:
+    needs:
+      - xxx
+    runs-on: ubuntu-latest
+    steps:
       - run: npm run build
   publish:
     needs:
+      - xxx
       - build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
       - run: echo Publishing...
   test:
     needs:
+      - xxx
       - build
       - publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
       - run: npm run build
 on:
   pull_request:
