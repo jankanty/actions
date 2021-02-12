@@ -2,21 +2,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      run: |
-        npm ci
-        npm run build
+      - run: |
+          npm ci
+          npm run build
   test:
     runs-on: ubuntu-latest
     steps:
-      run: |
-        npm ci
-        npm run build
+      - run: |
+          npm ci
+          npm run build
   publish:
     runs-on: ubuntu-latest
     steps:
-      run: |
-        npm ci
-        echo Publishing...
+      - run: |
+          npm ci
+          echo Publishing...
 on:
   pull_request:
     branches:
