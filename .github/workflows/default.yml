@@ -6,14 +6,17 @@ jobs:
       - run: npm install
       - run: npm run build
   publish:
-    needs: build
+    needs:
+      - build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
       - run: echo Publishing...
   test:
-    needs: publish
+    needs:
+      - build
+      - publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
