@@ -1,10 +1,4 @@
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
   build:
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +11,12 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: echo Publishing...
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
 on:
   pull_request:
     branches:
