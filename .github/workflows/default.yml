@@ -4,21 +4,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          npm ci
+          npm install
           npm run build
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
-          npm ci
+          npm install
           npm run build
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
-          npm ci
+          npm install
           echo Publishing...
 on:
   pull_request:
