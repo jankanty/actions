@@ -1,0 +1,12 @@
+{
+  "name": "@jankanty/actions",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "repository": "JanKanty/actions",
+  "scripts": {
+    "build": "echo Building...",
+    "test": "echo Testing..."
+  },
+  "private": true
+}
