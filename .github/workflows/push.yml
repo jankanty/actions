@@ -13,10 +13,10 @@ jobs:
       - test
     runs-on: ubuntu-latest
     steps:
-      - run: git log -1 --format='%ae' | git config --global user.email
-      - run: git log -1 --format='%an' | git config --global user.name
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
+      - run: git log -1 --format='%ae' | git config --global user.email
+      - run: git log -1 --format='%an' | git config --global user.name
       - run: npm install
       - run: npm run build
       - run: npm version --message 'Version %s' patch
