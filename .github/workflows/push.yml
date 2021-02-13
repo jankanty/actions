@@ -3,9 +3,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - run: git init ${{ GITHUB_WORKSPACE }}
-      - run: git remote add origin https://github.com/${{ GITHUB_REPOSITORY }}
-      - run: cd ${{ GITHUB_WORKSPACE }}
+      - run: git init $GITHUB_WORKSPACE
+      - run: git remote add origin $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
+      - run: cd $GITHUB_WORKSPACE
       - run: npm install
   build:
     name: Build
