@@ -19,7 +19,8 @@ jobs:
       - run: cd ${{ github.workspace }}
       - run: npm install
       - run: npm run build
-      - run: npm version patch
+      - run: npm version --message "Version %s" patch
+      - run: git push
 name: On push
 on:
   push:
