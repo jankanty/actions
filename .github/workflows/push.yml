@@ -5,7 +5,7 @@ jobs:
     steps:
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
-      - run: ls
+      - run: ls -la
       - uses: ./xxx
       - run: npm install
       - run: npm run test
