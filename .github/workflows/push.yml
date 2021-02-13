@@ -3,8 +3,8 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - run: git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY $GITHUB_WORKSPACE
-      - run: cd $GITHUB_WORKSPACE
+      - run: git clone https://github.com/${{ github.repository }} ${{ github.workspace }}
+      - run: cd ${{ github.workspace }}
       - run: npm install
       - run: npm run test
   build:
