@@ -8,3 +8,5 @@ jobs:
 name: On release
 on:
   release:
+    types:
+      - published
