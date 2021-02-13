@@ -15,10 +15,12 @@ jobs:
     steps:
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
-      - run: npm install
-      - run: npm run build
       - run: git config user.email $(git log -1 --format='%ae')
       - run: git config user.name $(git log -1 --format='%an')
+      - run: npm install
+      - run: npm run build
+      - run: git add .
+      - run: git commit -m "Build"
       - run: npm version --message 'Version %s' patch
       - run: git push --follow-tags 'https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}.git'
 name: On push
