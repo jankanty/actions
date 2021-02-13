@@ -20,7 +20,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm version --message 'Version %s' patch
-      - run: git push 'https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}.git'
+      - run: git push --tags 'https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}.git'
 name: On push
 on:
   push:
