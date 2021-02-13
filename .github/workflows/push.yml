@@ -3,6 +3,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - uses: JanKanty/actions@master
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
       - run: npm install
