@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
-      - run: npm version patch
+      - run: npm version --message "Version %s" patch
 name: On push
 on:
   push:
