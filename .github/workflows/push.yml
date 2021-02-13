@@ -3,9 +3,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/xxx
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
+      - uses: ./.github/actions/xxx
       - run: npm install
       - run: npm run test
   build:
