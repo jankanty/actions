@@ -5,12 +5,15 @@
   "license": "MIT",
   "repository": "JanKanty/actions",
   "scripts": {
-    "build": "echo Building...",
+    "build": "ncc src/main.js --out dist/main.js",
     "test": "echo Testing..."
   },
   "dependencies": {
-    "@actions/core": "latest",
-    "@actions/github": "latest"
+    "@actions/core": "^1.2",
+    "@actions/github": "^4.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.27"
   },
   "private": true
 }
