@@ -8,5 +8,9 @@
     "build": "echo Building...",
     "test": "echo Testing..."
   },
+  "dependencies": {
+    "@actions/core": "latest",
+    "@actions/github": "latest"
+  },
   "private": true
 }
