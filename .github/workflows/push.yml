@@ -13,8 +13,8 @@ jobs:
       - test
     runs-on: ubuntu-latest
     steps:
-      - run: git config --global user.email 'actions@github.com'
-      - run: git config --global user.name 'GitHub actions'
+      - run: git log -1 --format='%ae' > git config --global user.email
+      - run: git log -1 --format='%an' > git config --global user.name
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
       - run: npm install
