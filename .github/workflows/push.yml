@@ -16,7 +16,7 @@ jobs:
       - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
       - run: cd '${{ github.workspace }}'
       - run: git config --global user.email | git log -1 --format='%ae'
-      - run: git config --global user.name | git log -1 --format='%an
+      - run: git config --global user.name | git log -1 --format='%an'
       - run: npm install
       - run: npm run build
       - run: npm version --message 'Version %s' patch
