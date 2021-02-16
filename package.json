@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "JanKanty/actions",
   "scripts": {
-    "build": "ncc build src/main.js --out dist/main.js",
+    "build": "ncc build src/main.js",
     "test": "echo Testing..."
   },
   "dependencies": {
