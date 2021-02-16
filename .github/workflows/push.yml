@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: JanKanty/actions@master
+      - uses: JanKanty/action-test@master
       - run: npm install
       - run: npm run test
   build:
