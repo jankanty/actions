@@ -5,6 +5,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: JanKanty/action-test@main
+      - uses: JanKanty/actions@master
+      - uses: ./.github/actions/xxx
       - run: npm install
       - run: npm run test
   build:
