@@ -18,6 +18,16 @@ jobs:
       - run: npm install
       - run: npm run build
       - uses: JanKanty/actions/release@master
+  release:
+    name: Release
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: JanKanty/actions/checkout@master
+      - run: npm install
+      - uses: JanKanty/actions/release@master
 name: On push
 on:
   push:
