@@ -3,10 +3,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: JanKanty/action-test@main
-      - uses: JanKanty/actions@master
-      - uses: ./.github/actions/xxx
+      - uses: actions/checkout@main
       - run: npm install
       - run: npm run test
   build:
@@ -15,16 +12,9 @@ jobs:
       - test
     runs-on: ubuntu-latest
     steps:
-      - run: git clone 'https://github.com/${{ github.repository }}' '${{ github.workspace }}'
-      - run: cd '${{ github.workspace }}'
-      - run: git config user.email $(git log -1 --format='%ae')
-      - run: git config user.name $(git log -1 --format='%an')
+      - uses: actions/checkout@main
       - run: npm install
       - run: npm run build
-      - run: git add .
-      - run: git commit -m "Build"
-      - run: npm version --message 'Version %s' patch
-      - run: git push --follow-tags 'https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}.git'
 name: On push
 on:
   push:
