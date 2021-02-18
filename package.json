@@ -7,7 +7,11 @@
     "build": "echo Building...",
     "test": "echo Testing..."
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@actions/core": "^1.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.27"
+  },
   "private": true
 }

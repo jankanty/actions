@@ -1,0 +1,5 @@
+description:
+name: Release
+runs:
+  main: 'dist/main.js'
+  using: 'node12'

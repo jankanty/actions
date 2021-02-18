@@ -1,0 +1,5 @@
+description:
+name: Checkout
+runs:
+  main: 'dist/main.js'
+  using: 'node12'

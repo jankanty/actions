@@ -4,6 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
+      - uses: JanKanty/actions/checkout@master
       - run: npm install
       - run: npm run test
   build:
@@ -13,8 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
+      - uses: JanKanty/actions/checkout@master
       - run: npm install
       - run: npm run build
+      - uses: JanKanty/actions/release@master
 name: On push
 on:
   push:
