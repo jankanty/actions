@@ -4,7 +4,9 @@
   "description": "",
   "license": "MIT",
   "scripts": {
-    "build": "echo Building...",
+    "build": "npm run build:checkout && npm run build:release",
+    "build:checkout": "ncc build checkout/src/index.js --out checkout/dist --minify",
+    "build:release": "ncc build release/src/index.js --out release/dist --minify",
     "test": "echo Testing..."
   },
   "dependencies": {

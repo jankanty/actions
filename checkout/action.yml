@@ -1,5 +1,5 @@
 description:
 name: Checkout
 runs:
-  main: 'dist/main.js'
+  main: 'dist/index.js'
   using: 'node12'
