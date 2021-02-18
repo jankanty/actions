@@ -1,9 +1,9 @@
-const core = require('@actions/core');
+const {exec} = require('@actions/exec');
 
 
 
 async function run() {
-  console.log('Running release action...')
+  await exec('echo Running release action...')
 }
 
 

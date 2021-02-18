@@ -10,7 +10,8 @@
     "test": "echo Testing..."
   },
   "dependencies": {
-    "@actions/core": "^1.2"
+    "@actions/core": "^1.2",
+    "@actions/exec": "^1.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.27"

@@ -1,9 +1,9 @@
-const core = require('@actions/core');
+const {exec} = require('@actions/exec');
 
 
 
 async function run() {
-  console.log('Running checkout action...')
+  await exec('echo Running checkout action...')
 }
 
 
