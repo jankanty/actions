@@ -12,10 +12,12 @@ async function run() {
     'git log -1 --format=\'%ae\'',
     [],
     {
-      stdout: (data) => {
-        console.log(data.toString());
+      listeners: {
+        stdout: (data) => {
+          console.log(data.toString());
 
-        email += data.toString();
+          email += data.toString();
+        }
       }
     }
   );
@@ -24,10 +26,12 @@ async function run() {
     'git log -1 --format=\'%an\'',
     [],
     {
-      stdout: (data) => {
-        console.log(data.toString());
+      listeners: {
+        stdout: (data) => {
+          console.log(data.toString());
 
-        name += data.toString();
+          name += data.toString();
+        }
       }
     }
   );
