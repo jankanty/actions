@@ -10,6 +10,7 @@ async function run() {
 
   await exec(
     'git log -1 --format=\'%ae\'',
+    [],
     {
       stdout: (data) => {
         email = data.toString();
@@ -19,6 +20,7 @@ async function run() {
 
   await exec(
     'git log -1 --format=\'%ae\'',
+    [],
     {
       stdout: (data) => {
         name = data.toString();
