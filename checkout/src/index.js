@@ -32,6 +32,9 @@ async function run() {
     }
   );
 
+  console.log(email.length);
+  console.log(name.length);
+
   email = email.replace(/.{5}$/, '');
   name = name.replace(/.{5}$/, '');
 
