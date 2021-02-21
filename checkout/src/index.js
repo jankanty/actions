@@ -14,9 +14,11 @@ async function run() {
     {
       listeners: {
         stdout: (data) => {
-          console.log(data.toString());
+          const string = data.toString();
 
-          email += data.toString();
+          if (string !== '\n') {
+            email += string;
+          }
         }
       }
     }
@@ -28,9 +30,11 @@ async function run() {
     {
       listeners: {
         stdout: (data) => {
-          console.log(data.toString());
+          const string = data.toString();
 
-          name += data.toString();
+          if (string !== '\n') {
+            name += string;
+          }
         }
       }
     }
