@@ -14,11 +14,7 @@ async function run() {
     {
       listeners: {
         stdout: (data) => {
-          const string = data.toString();
-
-          if (string !== '\n') {
-            email += string;
-          }
+          email += data.toString();
         }
       }
     }
@@ -30,15 +26,14 @@ async function run() {
     {
       listeners: {
         stdout: (data) => {
-          const string = data.toString();
-
-          if (string !== '\n') {
-            name += string;
-          }
+          name += data.toString();
         }
       }
     }
   );
+
+  email = email.replace(/.$/, '');
+  name = name.replace(/.$/, '');
 
   console.log(`${ name } <${ email }>`);
 }
