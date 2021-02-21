@@ -13,6 +13,8 @@ async function run() {
     [],
     {
       stdout: (data) => {
+        console.log(data.toString());
+
         email += data.toString();
       }
     }
@@ -23,6 +25,8 @@ async function run() {
     [],
     {
       stdout: (data) => {
+        console.log(data.toString());
+
         name += data.toString();
       }
     }
