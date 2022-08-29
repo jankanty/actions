@@ -5,6 +5,9 @@ jobs:
     name: Update milestone
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/github-script@v6
+        with:
+          script: console.log(context);
       - uses: actions/checkout@v3
       - uses: ./.github/actions/on_milestone
 
