@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const MILESTONE = 'v0.163.x';
 
 const getPullRequests = async () => {
-  const buffer = await execSync(`gh pr list --json milestone,title --search "is:closed milestone:${MILESTONE}"`);
+  const buffer = await execSync(`gh pr list --json milestone,title --search "is:closed milestone:${context.payload.milestone.title}"`);
 
   return JSON.parse(buffer.toString());
 };
@@ -21,14 +21,12 @@ const getTickets = async (pullRequests) => {
     .sort();
 };
 
-const updateMilestone = async (pullRequests, tickets) => {
-  const milestone = pullRequests[0].milestone;
-
+const updateMilestone = async (_, tickets) => {
   const url = encodeURI(`https://vizlib.atlassian.net/issues/?jql=key in (${tickets.join(',')})`);
 
-  const description = milestone.description.replace(/\[JIRA tickets\]\(.+\)/g, '').trim();
+  const description = context.payload.milestone.description.replace(/\[JIRA tickets\]\(.+\)/g, '').trim();
 
-  await execSync(`gh milestone edit ${milestone.number} --description "${`[JIRA tickets](${url})\n\n${description}`.trim()}"`);
+  await execSync(`gh milestone edit ${context.payload.milestone.number} --description "${`[JIRA tickets](${url})\n\n${description}`.trim()}"`);
 };
 
 const run = async () => {
