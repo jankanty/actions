@@ -1,0 +1,12 @@
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+jobs:
+  update_milestone:
+    name: Update milestone
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/on_milestone.js
+
+name: On milestone
+on: milestone
