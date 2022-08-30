@@ -1,6 +1,8 @@
 const { execSync } = require('child_process');
 
-const milestone = JSON.parse(process.env.milestone);
+const milestone = context.payload;
+
+console.log(milestone);
 
 const getPullRequests = async () => {
   const buffer = await execSync(`gh pr list --json milestone,title --search "is:closed milestone:${milestone.title}"`);
