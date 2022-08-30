@@ -21,7 +21,7 @@ jobs:
             const getTickets = async (pullRequests) => {
               return pullRequests
                 .reduce((array, { title }) => {
-                  array.push(...title.match(/(AST-[0-9]+)/g));
+                  array.push(...(title.match(/(AST-[0-9]+)/g) ?? []));
 
                   return array;
                 }, [])
