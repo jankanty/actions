@@ -12,8 +12,10 @@ jobs:
           script: |
             const { execSync } = require('child_process');
 
+            const MILESTONE = context.payload.milestone;
+
             const getPullRequests = async () => {
-              const buffer = await execSync(`gh pr list --json milestone,title --search "is:closed milestone:${context.payload.milestone.title}"`);
+              const buffer = await execSync(`gh pr list --json title --search "is:closed milestone:${MILESTONE.title}"`);
 
               return JSON.parse(buffer.toString());
             };
@@ -21,7 +23,7 @@ jobs:
             const getTickets = async (pullRequests) => {
               return pullRequests
                 .reduce((array, { title }) => {
-                  array.push(...(title.match(/(AST-[0-9]+)/g) || []));
+                  array.push(...(title.match(/(AST-[0-9]+)/g) ?? []));
 
                   return array;
                 }, [])
@@ -38,9 +40,11 @@ jobs:
 
               const url = encodeURI(`https://vizlib.atlassian.net/issues/?jql=key in (${tickets.join(',')})`);
 
-              const description = context.payload.milestone.description.replace(/\[JIRA tickets\]\(.+\)/g, '').trim();
+              const description = MILESTONE.description.replace(/\[JIRA tickets\]\(.+\)/g, '').trim();
 
-              await execSync(`gh milestone edit ${context.payload.milestone.number} --description "${`[JIRA tickets](${url})\n\n${description}`.trim()}"`);
+              await execSync(
+                `gh milestone edit ${MILESTONE.number} --description "${`[JIRA tickets](${url})\n\n${description}`.trim()}"`,
+              );
             };
 
             const run = async () => {
@@ -53,8 +57,6 @@ jobs:
             };
 
             run();
-
-      - uses: ./.github/actions/on_milestone
 
 name: On milestone
 on: milestone

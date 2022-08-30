@@ -1,5 +1,0 @@
-description:
-name: On milestone
-runs:
-  main: 'index.js'
-  using: 'node16'
