@@ -21,7 +21,7 @@ jobs:
             const getTickets = async (pullRequests) => {
               return pullRequests
                 .reduce((array, { title }) => {
-                  array.push(...(title.match(/(AST-[0-9]+)/g) ?? []));
+                  array.push(...(title.match(/(AST-[0-9]+)/g) || []));
 
                   return array;
                 }, [])
@@ -32,6 +32,10 @@ jobs:
             };
 
             const updateMilestone = async (_, tickets) => {
+              if (tickets.length === 0) {
+                return;
+              }
+
               const url = encodeURI(`https://vizlib.atlassian.net/issues/?jql=key in (${tickets.join(',')})`);
 
               const description = context.payload.milestone.description.replace(/\[JIRA tickets\]\(.+\)/g, '').trim();
